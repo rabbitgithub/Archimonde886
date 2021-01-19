@@ -1,4 +1,25 @@
-## Welcome to GitHub Pages
+##  好好学习，天天向上！
+
+# tcpdump抓包
+  tcpdump -i eth0 -nn -s0 -v port 80
+  -i 指定网卡进行抓包
+  -n 和ss一样，表示不解析域名
+  -nn 两个n表示端口也是数字，否则解析成服务名
+  -s 设置抓包长度，0表示不限制
+  -v 抓包时显示详细输出，-vv、-vvv依次更加详细
+
+  加入-A选项将打印ascii ，-X打印hex码
+  tcpdump -A -s0 port 80
+
+  抓取特定ip的相关包
+  tcpdump -i eth0 host 10.10.1.1tcpdump -i eth0 dst 10.10.1.20
+
+  -w参数将抓取的包写入到某个文件中
+  tcpdump -i eth0 -s0 -w test.pcap
+
+  tcpdump支持表达式，还有更加复杂的例子，比如抓取系统中的get,post请求（非https)
+  tcpdump -s 0 -v -n -l | egrep -i "POST /|GET /|Host:"
+
 
 You can use the [editor on GitHub](https://github.com/rabbitgithub/Archimonde886/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
